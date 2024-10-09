@@ -1,0 +1,15 @@
+<p>
+    Todo List
+    <button (click)="onReset()">Reset</button>
+</p>
+<ul>
+    <li *ngFor="let todo of todos | async" [class.completed]="todo.completed">
+        <label>
+            <input type="checkbox" [checked]="todo.completed" (change)="onChange(todo)" />
+            {{ todo.title }}
+            <button (click)="onDelete(todo)" title="Delete Todo">x</button>
+        </label>
+    </li>
+</ul>
+
+<todo-form />
